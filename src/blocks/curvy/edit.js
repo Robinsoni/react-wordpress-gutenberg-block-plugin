@@ -30,7 +30,8 @@ import block_metadata from './block.json';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+export default function Edit(props) {
+	/* console.log("props** ",props); */
 	return (
 		<p { ...useBlockProps() }>
 			{ __( 'Curvy – hello from the editor!', block_metadata.textdomain ) }
@@ -38,6 +39,12 @@ export default function Edit() {
 				<PanelBody title={__("Top curv",block_metadata.textdomain)}>
 					<div style={{display:"flex"}} >
 						<ToggleControl
+							onChange={(isChecked) => {
+								props.setAttributes({
+									enableTopCurve: isChecked
+								});
+							}}
+							checked={props.attributes.enableTopCurve}
 						/>							
 						<span>{__("Enable top curve",block_metadata.textdomain)}</span>
 					</div>
