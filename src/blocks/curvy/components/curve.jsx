@@ -4,7 +4,7 @@ export const Curve = (props) => {
   return (
     <div>
         <svg
-          style={{backgroundColor:"pink"}}
+       
             viewBox='0 0 1200 120' 
         >
             <path 
