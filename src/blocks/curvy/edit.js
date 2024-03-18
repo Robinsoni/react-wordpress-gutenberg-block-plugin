@@ -11,8 +11,8 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps,InspectorControls } from '@wordpress/block-editor';
-import {PanelBody, ToggleControl} from "@wordpress/components";
+import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { PanelBody, ToggleControl } from "@wordpress/components";
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -21,7 +21,7 @@ import {PanelBody, ToggleControl} from "@wordpress/components";
  */
 import './editor.scss';
 import block_metadata from './block.json';
-
+import { Curve } from './components/curve';
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -32,12 +32,20 @@ import block_metadata from './block.json';
  */
 export default function Edit(props) {
 	/* console.log("props** ",props); */
+	console.log("block props** ", useBlockProps());
+	const { className, ...blockProps } = useBlockProps();
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Curvy – hello from the editor!', block_metadata.textdomain ) }
+		<>
+			<section className={`${className} alignfull`} {...blockProps} > 
+			{
+			props.attributes.enableTopCurve &&
+				<Curve
+				></Curve>
+			}
+			</section>
 			<InspectorControls>
-				<PanelBody title={__("Top curv",block_metadata.textdomain)}>
-					<div style={{display:"flex"}} >
+				<PanelBody title={__("Top curv", block_metadata.textdomain)}>
+					<div style={{ display: "flex" }} >
 						<ToggleControl
 							onChange={(isChecked) => {
 								props.setAttributes({
@@ -45,11 +53,12 @@ export default function Edit(props) {
 								});
 							}}
 							checked={props.attributes.enableTopCurve}
-						/>							
-						<span>{__("Enable top curve",block_metadata.textdomain)}</span>
+						/>
+						<span>{__("Enable top curve", block_metadata.textdomain)}</span>
 					</div>
 				</PanelBody>
 			</InspectorControls>
-		</p>
+
+		</>
 	);
 }
