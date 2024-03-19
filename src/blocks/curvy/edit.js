@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, ToggleControl } from "@wordpress/components";
+import { PanelBody, ToggleControl, HorizontalRule, RangeControl } from "@wordpress/components";
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -34,14 +34,17 @@ export default function Edit(props) {
 	/* console.log("props** ",props); */
 	console.log("block props** ", useBlockProps());
 	const { className, ...blockProps } = useBlockProps();
+	
 	return (
 		<>
-			<section className={`${className} alignfull`} {...blockProps} > 
-			{
-			props.attributes.enableTopCurve &&
-				<Curve
-				></Curve>
-			}
+			<section className={`${className} alignfull`} {...blockProps} >
+				{
+					props.attributes.enableTopCurve &&
+					<Curve 
+					height = {props.attributes.topHeight}
+					width = {props.attributes.topWidth}
+					></Curve>
+				}
 			</section>
 			<InspectorControls>
 				<PanelBody title={__("Top curv", block_metadata.textdomain)}>
@@ -56,6 +59,35 @@ export default function Edit(props) {
 						/>
 						<span>{__("Enable top curve", block_metadata.textdomain)}</span>
 					</div>
+					<div  >
+						<HorizontalRule />
+						{/* 	<span>{__("Width",block_metadata.textdomain)}</span> */}
+						<RangeControl
+							min={100}
+							max={300}
+							value={props.attributes.topWidth || 100}
+							onChange={(newValue) => {
+								props.setAttributes({
+									topWidth: parseInt(newValue)
+								})
+							}}
+							label={__("Width", block_metadata.textdomain)} />
+					</div>
+					<div  >
+						<HorizontalRule />
+						{/* 	<span>{__("Width",block_metadata.textdomain)}</span> */}
+						<RangeControl
+							min={100}
+							max={300}
+							value={props.attributes.topHeight || 100}
+							onChange={(newValue) => {
+								props.setAttributes({
+									topHeight: parseInt(newValue)
+								})
+							}}
+							label={__("Height", block_metadata.textdomain)} />
+					</div>
+
 				</PanelBody>
 			</InspectorControls>
 

@@ -16,29 +16,37 @@
 			"text": true
 		},
 		"spacing": {
-			"padding":true
+			"padding": true
 		}
 	},
 	"attributes": {
-		"style" : {
-			"type":"object",
-			"default":{
-				"color":{
-					"background":"#ec4899"
+		"style": {
+			"type": "object",
+			"default": {
+				"color": {
+					"background": "#ec4899"
 				},
 				"spacing": {
-					"padding":{
-						"top":"50px",
-						"bottom":"50px",
-						"left" : "50px",
-						"right":"50px"
-					}	
+					"padding": {
+						"top": "50px",
+						"bottom": "50px",
+						"left": "50px",
+						"right": "50px"
+					}
 				}
 			}
 		},
-		"enableTopCurve":{
-			"type":"boolean",
-			"default":true
+		"enableTopCurve": {
+			"type": "boolean",
+			"default": true
+		},
+		"topWidth": {
+			"type": "number",
+			"default":100
+		},
+		"topHeight": {
+			"type": "number",
+			"default":100
 		}
 	},
 	"textdomain": "blockylicious",

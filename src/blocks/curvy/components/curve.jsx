@@ -2,9 +2,23 @@ import React from 'react'
 
 export const Curve = (props) => {
   return (
-    <div>
+    <div style={{
+      position:"absolute",
+      width:"100%",
+      height:props.height,
+      left:0,
+      top:0,
+      overflow:"hidden"
+    }}>
         <svg
-          style={{position:"absolute", top:0,left:0}}
+        preserveAspectRatio='none'
+          style={{
+            position:"absolute",
+            top:0,
+            left:0,
+            height:props.height,
+            width:`${props.width}%`
+          }}
             viewBox='0 0 1200 120' 
         >
             <path 
