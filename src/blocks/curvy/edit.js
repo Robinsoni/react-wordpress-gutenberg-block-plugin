@@ -43,6 +43,8 @@ export default function Edit(props) {
 					<Curve 
 					height = {props.attributes.topHeight}
 					width = {props.attributes.topWidth}
+					flipX = {props.attributes.topFlipX}
+					flipY = {props.attributes.topFlipY}
 					></Curve>
 				}
 			</section>
@@ -87,7 +89,30 @@ export default function Edit(props) {
 							}}
 							label={__("Height", block_metadata.textdomain)} />
 					</div>
-
+					<HorizontalRule />
+					<div style={{ display: "flex" }} >
+						<ToggleControl
+							onChange={(isChecked) => {
+								props.setAttributes({
+									topFlipX: isChecked
+								});
+							}}
+							checked={props.attributes.topFlipX}
+						/>
+						<span>{__("Flip Horizontally", block_metadata.textdomain)}</span>
+					</div>
+					<HorizontalRule />
+					<div style={{ display: "flex" }} >
+						<ToggleControl
+							onChange={(isChecked) => {
+								props.setAttributes({
+									topFlipY: isChecked
+								});
+							}}
+							checked={props.attributes.topFlipY}
+						/>
+						<span>{__("Flip Vertically", block_metadata.textdomain)}</span>
+					</div>
 				</PanelBody>
 			</InspectorControls>
 
