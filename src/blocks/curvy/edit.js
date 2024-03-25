@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, ToggleControl, HorizontalRule, RangeControl } from "@wordpress/components";
+import { PanelBody, ToggleControl, HorizontalRule, RangeControl, ColorPicker } from "@wordpress/components";
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -34,17 +34,18 @@ export default function Edit(props) {
 	/* console.log("props** ",props); */
 	console.log("block props** ", useBlockProps());
 	const { className, ...blockProps } = useBlockProps();
-	
+
 	return (
 		<>
 			<section className={`${className} alignfull`} {...blockProps} >
 				{
 					props.attributes.enableTopCurve &&
-					<Curve 
-					height = {props.attributes.topHeight}
-					width = {props.attributes.topWidth}
-					flipX = {props.attributes.topFlipX}
-					flipY = {props.attributes.topFlipY}
+					<Curve
+						height={props.attributes.topHeight}
+						width={props.attributes.topWidth}
+						flipX={props.attributes.topFlipX}
+						flipY={props.attributes.topFlipY}
+						color={props.attributes.topColor}
 					></Curve>
 				}
 			</section>
@@ -112,6 +113,17 @@ export default function Edit(props) {
 							checked={props.attributes.topFlipY}
 						/>
 						<span>{__("Flip Vertically", block_metadata.textdomain)}</span>
+					</div>
+					<div>
+						<label >{__("Color Picker", block_metadata.textdomain)}</label>
+						<ColorPicker
+							onChange={(color)=>{
+								props.setAttributes({
+									topColor:color		
+								});
+							}}
+							value={props.attributes.topColor} 
+						/>
 					</div>
 				</PanelBody>
 			</InspectorControls>
