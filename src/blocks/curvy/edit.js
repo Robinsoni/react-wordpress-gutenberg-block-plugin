@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls, InnerBlocks } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl, HorizontalRule, RangeControl, ColorPicker } from "@wordpress/components";
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -50,6 +50,7 @@ export default function Edit(props) {
 						color={props.attributes.topColor}
 					></Curve>
 				}
+					<InnerBlocks />
 				{
 					props.attributes.enableBottomCurve &&
 					<Curve
@@ -85,6 +86,7 @@ export default function Edit(props) {
 					/>			
 					}
 				</PanelBody>
+			
 				<PanelBody title={__("Bottom curv", block_metadata.textdomain)}>
 					<div style={{ display: "flex" }} >
 						<ToggleControl
