@@ -19,6 +19,16 @@
       "padding": true
     }
   },
+  "variations": [
+    {
+      "name": "curvy top only curve",
+      "title": "Curvy - Top Only",
+      "attributes": {
+        "enableTopCurve": true,
+        "enableBottomCurve": false
+      }
+    }
+  ],
   "attributes": {
     "style": {
       "type": "object",
