@@ -25,7 +25,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
+function create_custom_block_category($category){
+	array_unshift($category,[
+		'slug' => "blockylicious",
+		'title' => 'Blockylicious'
+	]);
+ 
+}
 function curvy_block_blockylicious_block_init() {
+	add_filter('block_categories_all','create_custom_block_category');
 	register_block_type( __DIR__ . '/build/blocks/curvy' );
 }
 add_action( 'init', 'curvy_block_blockylicious_block_init' );
