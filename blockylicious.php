@@ -35,5 +35,7 @@ function create_custom_block_category($category){
 function curvy_block_blockylicious_block_init() {
 	add_filter('block_categories_all','create_custom_block_category');
 	register_block_type( __DIR__ . '/build/blocks/curvy' );
+	register_block_type( __DIR__ . '/build/blocks/clickyGroup' );
+	register_block_type( __DIR__ . '/build/blocks/clickyButton' );
 }
 add_action( 'init', 'curvy_block_blockylicious_block_init' );
