@@ -10,6 +10,11 @@
 	"supports": {
 		"html": false
 	},
+	"attributes": {
+		"imageId":{
+			"type":"number"
+		}
+	},
 	"textdomain": "blockylicious",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

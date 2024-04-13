@@ -9,7 +9,12 @@
  */
 .wp-block-blockylicious-piccy-image {
   border: 1px solid red;
-  height: 200px;
+  width: 150px;
+}
+.wp-block-blockylicious-piccy-image .thumbnail-image {
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

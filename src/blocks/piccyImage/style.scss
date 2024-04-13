@@ -6,6 +6,10 @@
  */
  .wp-block-blockylicious-piccy-image {
     border: 1px solid red;
-    height: 200px;
+    width: 150px;
+    .thumbnail-image{
+        height: 150px;
+        object-fit: cover;
+    }
 
 }
