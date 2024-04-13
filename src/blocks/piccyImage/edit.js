@@ -27,7 +27,7 @@ export default function Edit(props) {
 				<MediaUpload
 					allowedTypes={["image"]}
 					render={({ open }) => (
-						<Button onClick={open}>Upload Media</Button>
+						<Button onClick={open}>{imageData?.id?"Replace Image":"Upload Image"}</Button>
 					  )}
 					onSelect={(item) => {
 						props.setAttributes(

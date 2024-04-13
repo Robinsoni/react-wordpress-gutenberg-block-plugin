@@ -7,14 +7,27 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-blockylicious-piccy-image {
-  border: 1px solid red;
-  width: 150px;
-}
 .wp-block-blockylicious-piccy-image .thumbnail-image {
   height: 150px;
   -o-object-fit: cover;
      object-fit: cover;
+  width: 100%;
+}
+.wp-block-blockylicious-piccy-image .components-button {
+  width: 100%;
+  padding: 10px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 10px;
+  cursor: pointer;
+  background: #ddd;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
+}
+.wp-block-blockylicious-piccy-image .components-button:hover {
+  background: #ccc;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

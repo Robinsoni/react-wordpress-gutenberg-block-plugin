@@ -468,8 +468,8 @@ function ImageThumbnail({
   imageData
 }) {
   return imageData?.source_url && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: imageData.source_url,
-    className: "thumbnail-image"
+    className: "thumbnail-image",
+    src: imageData.source_url
   });
 }
 
@@ -525,7 +525,7 @@ function Edit(props) {
       open
     }) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
       onClick: open
-    }, "Upload Media"),
+    }, imageData?.id ? "Replace Image" : "Upload Image"),
     onSelect: item => {
       props.setAttributes({
         imageId: item.id

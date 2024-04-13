@@ -8,7 +8,26 @@
  */
 .wp-block-blockylicious-piccy-gallery .edit-mode {
   background: #eee;
-  height: 300px;
+  padding: 40px;
+  position: relative;
+}
+.wp-block-blockylicious-piccy-gallery .piccy-gallery-inner-blocks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.wp-block-blockylicious-piccy-gallery .piccy-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px;
+  background: #ddd;
+  font-size: 10px;
+  font-weight: bold;
+}
+.wp-block-blockylicious-piccy-gallery .piccy-label:hover {
+  background: #fff;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=index.css.map*/
