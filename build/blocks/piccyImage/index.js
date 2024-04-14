@@ -462,14 +462,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hooks_useImage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../hooks/useImage */ "./src/hooks/useImage.jsx");
 
 
-function ImageThumbnail({
-  imageData
-}) {
+
+function ImageThumbnail(props) {
+  const imageData = (0,_hooks_useImage__WEBPACK_IMPORTED_MODULE_1__.useImage)(props.imageData);
   return imageData?.source_url && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    className: "thumbnail-image",
-    src: imageData.source_url
+    className: 'thumbnail-image ' + (props.class ? props.class : ""),
+    src: imageData.source_url,
+    onClick: () => {
+      props.imageClickHandeler ? props.imageClickHandeler() : console.log("no handler attached");
+    }
   });
 }
 
@@ -500,8 +504,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./block.json */ "./src/blocks/piccyImage/block.json");
 /* harmony import */ var _components_ImageThumbnail__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/ImageThumbnail */ "./src/blocks/piccyImage/components/ImageThumbnail.jsx");
-/* harmony import */ var _hooks_useImage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../hooks/useImage */ "./src/hooks/useImage.jsx");
-
 
 
 
@@ -514,18 +516,17 @@ __webpack_require__.r(__webpack_exports__);
 
 function Edit(props) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
-  const imageData = (0,_hooks_useImage__WEBPACK_IMPORTED_MODULE_9__.useImage)(props.attributes.imageId);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_ImageThumbnail__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    imageData: imageData
+    imageData: props.attributes.imageId
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
     allowedTypes: ["image"],
     render: ({
       open
     }) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
       onClick: open
-    }, imageData?.id ? "Replace Image" : "Upload Image"),
+    }, props?.attributes?.imageId ? "Replace Image" : "Upload Image"),
     onSelect: item => {
       props.setAttributes({
         imageId: item.id

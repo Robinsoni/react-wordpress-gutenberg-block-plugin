@@ -14,7 +14,9 @@
  *
  * @package           create-block
  */
+
 namespace BlockyliciousPlugins;
+
 if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
@@ -26,12 +28,12 @@ if (!defined('ABSPATH')) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-
+ 
 
 final class Blockylicious
 {
 	static function init()
-	{ 
+	{
 		add_action('init', function () {
 			add_filter('block_categories_all', function ($categories) {
 				array_unshift($categories, [
@@ -43,28 +45,30 @@ final class Blockylicious
 			register_block_type(__DIR__ . '/build/blocks/curvy');
 			register_block_type(__DIR__ . '/build/blocks/clickyGroup');
 			register_block_type(__DIR__ . '/build/blocks/clickyButton');
-			register_block_type(__DIR__ . '/build/blocks/piccyGallery'); 
-			register_block_type(__DIR__ . '/build/blocks/piccyImage'); 
+			register_block_type(__DIR__ . '/build/blocks/piccyGallery');
+			register_block_type(__DIR__ . '/build/blocks/piccyImage');
 		});
+		 
 	}
+
+
+
 	static function convert_custom_properties($value)
-		{
-			$prefix     = 'var:';
-			$prefix_len = strlen($prefix);
-			$token_in   = '|';
-			$token_out  = '--';
-			if (str_starts_with($value, $prefix)) {
-				$unwrapped_name = str_replace(
-					$token_in,
-					$token_out,
-					substr($value, $prefix_len)
-				);
-				$value          = "var(--wp--$unwrapped_name)";
-			}
-	
-			return $value;
-		} 
+	{
+		$prefix     = 'var:';
+		$prefix_len = strlen($prefix);
+		$token_in   = '|';
+		$token_out  = '--';
+		if (str_starts_with($value, $prefix)) {
+			$unwrapped_name = str_replace(
+				$token_in,
+				$token_out,
+				substr($value, $prefix_len)
+			);
+			$value          = "var(--wp--$unwrapped_name)";
+		}
+
+		return $value;
+	}
 }
 Blockylicious::init();
-
-  

@@ -26,7 +26,9 @@ var __webpack_exports__ = {};
  */
 
 /* eslint-disable no-console */
-console.log('Hello World! (from blockylicious-curvy block)');
+window.onload = () => {
+  console.log('Hello World! (from blockylicious-curvy block)');
+};
 /* eslint-enable no-console */
 /******/ })()
 ;

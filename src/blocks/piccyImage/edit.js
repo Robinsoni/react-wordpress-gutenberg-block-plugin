@@ -10,16 +10,15 @@ import "./editor.scss";
 import { __ } from "@wordpress/i18n";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import metadata from './block.json';
-import ImageThumbnail from './components/ImageThumbnail';
-import { useImage } from '../../hooks/useImage';
+import ImageThumbnail from './components/ImageThumbnail'; 
 export default function Edit(props) {
 	const blockProps = useBlockProps();
-	const imageData = useImage(props.attributes.imageId); 
+	 
 	return (
 		
 		<div {...blockProps} >
 			<div >
-				<ImageThumbnail imageData={imageData} />
+				<ImageThumbnail imageData={props.attributes.imageId} />
 				
 				{/* <FontAwesomeIcon icon={faPanorama} style={{ margin: "auto" }} /> */}
 			</div>
@@ -27,7 +26,7 @@ export default function Edit(props) {
 				<MediaUpload
 					allowedTypes={["image"]}
 					render={({ open }) => (
-						<Button onClick={open}>{imageData?.id?"Replace Image":"Upload Image"}</Button>
+						<Button onClick={open}>{props?.attributes?.imageId?"Replace Image":"Upload Image"}</Button>
 					  )}
 					onSelect={(item) => {
 						props.setAttributes(

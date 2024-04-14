@@ -271,8 +271,6 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Element} Element to render.
  */
 function Edit(props) {
-  /* console.log("props** ",props); */
-  console.log("block props** ", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)());
   const {
     className,
     ...blockProps

@@ -79,14 +79,12 @@ function Edit(props) {
     });
     return data?.filter(item => item.visibility.show_in_nav_menus && item.visibility.show_ui);
   });
-  console.log(" ** ** postTypes ", postTypes);
   const posts = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
     const data = select("core").getEntityRecords("postType", props.attributes.postType, {
       per_page: -1
     });
     return data;
   }, [props.attributes.postType]);
-  console.log(" ** posts ** posts ", posts);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
     title: "Destination"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {

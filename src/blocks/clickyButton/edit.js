@@ -11,8 +11,7 @@ export default function Edit(props) {
 		return data?.filter(
 			(item) => item.visibility.show_in_nav_menus && item.visibility.show_ui
 		);
-	});
-	console.log(" ** ** postTypes ", postTypes);
+	}); 
 	const posts = useSelect(
 		(select) => {
 			const data = select("core").getEntityRecords(
@@ -25,8 +24,7 @@ export default function Edit(props) {
 			return data;
 		},
 		[props.attributes.postType]
-	);
-	console.log(" ** posts ** posts ", posts);
+	); 
 
 
 	return (

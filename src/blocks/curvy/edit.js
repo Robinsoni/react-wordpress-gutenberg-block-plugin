@@ -32,9 +32,7 @@ import { BottomCurveSettings } from './components/bottomCurveSettings';
  *
  * @return {Element} Element to render.
  */
-export default function Edit(props) {
-	/* console.log("props** ",props); */
-	console.log("block props** ", useBlockProps());
+export default function Edit(props) { 
 	const { className, ...blockProps } = useBlockProps();
 
 	return (
