@@ -3,12 +3,11 @@ import {
 	useBlockProps,
 	MediaUploadCheck,
 	MediaUpload
-} from '@wordpress/block-editor';
-import {useSelect} from "@wordpress/data";
+} from '@wordpress/block-editor'; 
 import {Button} from "@wordpress/components";
 import "./editor.scss";
 import { __ } from "@wordpress/i18n";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import metadata from './block.json';
 import ImageThumbnail from './components/ImageThumbnail'; 
 export default function Edit(props) {
@@ -18,9 +17,7 @@ export default function Edit(props) {
 		
 		<div {...blockProps} >
 			<div >
-				<ImageThumbnail imageData={props.attributes.imageId} />
-				
-				{/* <FontAwesomeIcon icon={faPanorama} style={{ margin: "auto" }} /> */}
+				{<ImageThumbnail imageData={props.attributes.imageId} />}
 			</div>
 			<MediaUploadCheck>
 				<MediaUpload

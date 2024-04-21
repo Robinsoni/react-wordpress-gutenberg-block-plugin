@@ -7,6 +7,9 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+.wp-block-blockylicious-piccy-gallery {
+  max-width: 30em;
+}
 .wp-block-blockylicious-piccy-gallery .preview-mode {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -40,6 +43,46 @@
 .wp-block-blockylicious-piccy-gallery .thumbnail-image.preview-thumb {
   width: 100%;
   border-radius: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.wp-block-blockylicious-piccy-gallery > .render-image-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.wp-block-blockylicious-piccy-gallery > .render-image-container .thumbnail-image {
+  z-index: 1;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  border: 4px transparent;
+  filter: brightness(50%);
+  border-radius: 7px;
+  transition: all;
+  transition-duration: 0.2s;
+}
+.wp-block-blockylicious-piccy-gallery > .render-image-container .thumbnail-image:hover {
+  scale: 1.2;
+  filter: brightness(100%);
+  cursor: pointer;
+}
+.wp-block-blockylicious-piccy-gallery > .render-image-container .selected {
+  border: 4px solid blue;
+  border-radius: 10px;
+  scale: 1.2;
+  filter: brightness(100%);
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.wp-block-blockylicious-piccy-gallery .image-preview {
+  width: 100%;
+  border-radius: 20px;
   padding: 10px;
   box-sizing: border-box;
 }

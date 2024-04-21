@@ -20,6 +20,7 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
-/* eslint-disable no-console */
-console.log( 'Hello World! (from blockylicious-curvy block)' );
+/* eslint-disable no-console */ 
+    console.log( 'Hello World! (from blockylicious-curvy block -- image)' );
+ 
 /* eslint-enable no-console */

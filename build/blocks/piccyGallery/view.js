@@ -24,14 +24,31 @@ var __webpack_exports__ = {};
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
-window.onload = () => {
-  /* eslint-disable no-console */
-  console.log('Hello World! (from blockylicious-curvy piccy - gallery)');
-  const preview_mode = document.querySelector(".preview-mode");
-  const thumbnail_images = document.querySelectorAll(".thumbnail-image");
-  console.log(" *** view script selected images ", thumbnail_images);
-  /* eslint-enable no-console */
-};
+
+/* eslint-disable no-console */
+console.log('Hello World! (from blockylicious-curvy piccy - gallery)');
+const image_containers = document.querySelectorAll(".wp-block-blockylicious-piccy-gallery > .render-image-container");
+const preview_images = document.querySelectorAll(".wp-block-blockylicious-piccy-gallery .image-preview");
+image_containers.forEach((container, index) => {
+  const image = container?.querySelector("img");
+  image.classList.add("selected");
+  container.parentElement.querySelector("img.image-preview").src = image.dataset.largeSize;
+  container.addEventListener('click', addSelectedClass.bind(null, container));
+});
+function addSelectedClass(container, e) {
+  console.log("** ** container ", container);
+  removeSelectedClass(container);
+  if (e.target.tagName == "IMG") {
+    e.target.classList.add("selected");
+    container.parentElement.querySelector("img.image-preview").src = e.target.dataset.largeSize;
+  }
+}
+function removeSelectedClass(container) {
+  const thumbnail_images = container.querySelectorAll(".thumbnail-image");
+  thumbnail_images.forEach(thumbImg => {
+    thumbImg.classList.remove('selected');
+  });
+}
 /******/ })()
 ;
 //# sourceMappingURL=view.js.map
