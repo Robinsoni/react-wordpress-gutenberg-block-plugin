@@ -47,6 +47,9 @@ final class Blockylicious
 			register_block_type(__DIR__ . '/build/blocks/clickyButton');
 			register_block_type(__DIR__ . '/build/blocks/piccyGallery');
 			register_block_type(__DIR__ . '/build/blocks/piccyImage');
+
+			$script_url = plugins_url('build/index.js',__FILE__);
+			wp_enqueue_script('blockylicious-index',$script_url,array('wp-blocks','wp-element','wp-editor'));
 		});
 		 
 	}

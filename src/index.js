@@ -1,0 +1,1 @@
+console.log("testing the js file in src directory");
